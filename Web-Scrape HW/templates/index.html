@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title> Mars weather page</title>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    </head>
+    <body>
+        <main>
+        <div class="container text-center">
+            <div class="row"> 
+                <h1 class="jumbotron">{{mars.Mars_news_title}}</h1>
+                <p>{{mars.Mars_news_p}}</p>
+            </div>
+            <div class="row">
+                <div style="background-color: lightgray " class="col-12 col-md-8">
+                    <h2>Featured Mars image</h2>  
+                    <img src = {{mars.Mars_images}}  alt = "a  pic of mars" height=25% width=25%>
+                </div>
+                <div style="height: 50px;" class="col-12 col-md-4">
+                    <h4>Current Weather on Mars</h4>
+                    <P>{{mars.Mars_tweets}}</P>
+                </div>
+            </main>
+                <div style="background-color: lightgray " class="col-12 col-md-8">
+                    <h4>Mars Facts</h4>
+                    <table>
+                        <p>{{mars.Mars_stats.Value}}</p>
+
+                    </table>
+                </div>
+                <div style= class="col-12 col-md-4">
+                    <h2>Mars Hemisphere</h3>
+                    <ul>
+                    {% for mar in mars.Mars_hemi %}
+                    <li style ="color:blue">
+                        <h4> {{mar.title}} </h1>
+                        <img src = {{mar.img_url}} height=25% width=25%>
+                    </li>
+                    {% endfor %}
+                    </ul>
+                </div>    
+            </div>
+        </div>
+        
+        
+                    
+                    
+                
+        
+    </body>
+
+
+</html>
