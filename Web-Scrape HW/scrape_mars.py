@@ -65,12 +65,22 @@ def scrape():
     #featured_image_url = "https://www.jpl.nasa.gov" + results['data-fancybox-href']
     print(featured_image_url)
 
-    tweets = api.user_timeline('MarsWxReport',count=1)
-    mars_weather = []
-    for tweet in tweets:
-        pprint(tweet['text'])
-        mars_weather.append(tweet['text'])
-    print(mars_weather)
+    # tweets = api.user_timeline('MarsWxReport',count=1)
+    # mars_weather = []
+    # for tweet in tweets:
+    #     pprint(tweet['text'])
+    #     mars_weather.append(tweet['text'])
+    # print(mars_weather)
+
+    url = 'https://twitter.com/marswxreport?lang=en'
+    browser.visit(url)
+    html = browser.html
+    soup = BeautifulSoup(html, 'html.parser')
+    tweets = soup.find("div",class_="js-tweet-text-container").text
+    print(tweets)
+    mars_weather =  tweets
+
+
 
     target_url = 'https://space-facts.com/mars/'
     tables = pd.read_html(target_url)
